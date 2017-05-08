@@ -1,4 +1,4 @@
-package pl.cinema;
+package pl.cinema.controller;
 
 import javax.validation.Valid;
 
