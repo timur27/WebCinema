@@ -1,4 +1,4 @@
-package pl.cinema;
+package pl.cinema.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -6,6 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+
+import pl.cinema.repository.MovieRepository;
 
 @Controller
 public class MovieController {
@@ -28,6 +31,11 @@ public class MovieController {
         return "movies";
     }
 
+    @RequestMapping(value = "/movie", method = RequestMethod.GET)
+    public String showMovie(@RequestParam("name") String name, Model model){
+        model.addAttribute("movie",movieRepo.findByName(name));
+        return "movie";
+    }
     /*@RequestMapping(value = "/movies", method = RequestMethod.POST)
     public String findMovie(@ModelAttribute("name") @Valid String name, Model model){
       /*  if(name.equals("Nazwa_rosnąco")){
