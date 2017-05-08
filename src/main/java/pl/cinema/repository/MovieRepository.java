@@ -1,9 +1,11 @@
-package pl.cinema;
+package pl.cinema.repository;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
+
+import pl.cinema.model.Movie;
 import java.util.List;
 
 public interface MovieRepository extends CrudRepository<Movie, Integer> {
@@ -22,4 +24,7 @@ public interface MovieRepository extends CrudRepository<Movie, Integer> {
 
     @Query("select m from Movie m where (m.name like %:name%) and (m.type like %:type%) order by rating/numberofvotes desc")
     List<Movie> findByNameContainingAndTypeContainingOrderByAverageRatingDesc(@Param("name") String name, @Param("type") String type);
+
+
+    Movie findByName(String name);
 }
