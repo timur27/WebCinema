@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<!--<p th:text="'Hello, ' + ${name} + '!'" />-->
+<form method="get" >
+    <pre>
+        Nazwa
+        <input type= "text" name="name"/>
+        Premiera
+        <input type= "text" name="premiera"/>
+        Czas trwania
+        <input type= "text" name="czas"/>
+        Napisy
+        <input type= "text" name="napisy"/>
+        3D
+        <input type= "text" name="jakosc"/>
+        Rezyser
+        <input type= "text" name="rezyser"/>
+        Gatunek
+        <input type= "text" name="gatunek"/>
+        Produkcja
+        <input type= "text" name="produkcja"/>
+        Ocena
+        <input type= "text" name="ocena"/>
+        <!--<input type="checkbox" onclick="document.getElementById('id').style.display = this.checked ? 'block' : 'none';-->
+        <!--this.form.elements['asc'].disabled = !this.checked" />-->
+    </pre>
+    <p>
+        <button>Dodaj</button>
+    </p>
+    <p th:text="${error}" />
+</form>
+</body>
+</html>
