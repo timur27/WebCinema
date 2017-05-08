@@ -1,4 +1,4 @@
-package pl.cinema;
+package pl.cinema.configuration;
 
 import javax.sql.DataSource;
 
@@ -46,6 +46,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.
                 authorizeRequests()
                 .antMatchers("/").permitAll()
+                .antMatchers("/movie").permitAll()
                 .antMatchers("/movies").permitAll()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/registration").permitAll()
