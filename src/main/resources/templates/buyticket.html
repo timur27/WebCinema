@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <title>Kup bilet</title>
+    <!--
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css"
+          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" th:href="@{/css/layout.css}"
+          href="../static/css/layout.css" />
+          -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+    <a href="/movies?name=">Powrot do wyszukiwania</a>
+
+    <div th:if="${successMessage=='days'}">
+    <p>
+        Dzien
+    </p>
+        <form>
+            <div>
+                <tr th:each="day : ${days}">
+                    <td>
+                        <a th:href="@{${url} +'/'+${day} }" th:text="${day}"></a>
+                    </td>
+
+                </tr>
+            </div>
+        </form>
+    </div>
+
+    <div th:if="${successMessage=='times'}">
+        <p>Dzien</p>
+        <form>
+        <div>
+            <tr th:each="day : ${days}">
+                <td>
+                    <a th:href="@{${url1} +'/'+${day} }" th:text="${day}"></a>
+                </td>
+
+            </tr>
+        </div>
+        </form>
+        <p>
+            Godzina
+        </p>
+        <form>
+            <div>
+                <tr th:each="time : ${times}">
+                    <td>
+                        <a th:href="@{${url} +'/'+${time} }" th:text="${time}"></a>
+                    </td>
+
+                </tr>
+            </div>
+        </form>
+        <a th:href="@{/buyticket/{name}(name=${name})}">Zmien date</a>
+    </div>
+    <div th:if="${successMessage=='places'}">
+        <p>Dzien</p>
+        <form>
+            <div>
+                <tr th:each="day : ${days}">
+                    <td>
+                        <a th:href="@{${url1} +'/'+${day} }" th:text="${day}"></a>
+                    </td>
+
+                </tr>
+            </div>
+        </form>
+        <p>
+            Godzina
+        </p>
+        <form>
+            <div>
+                <tr th:each="time : ${times}">
+                    <td>
+                        <a th:href="@{${url} +'/'+${time} }" th:text="${time}"></a>
+                    </td>
+                </tr>
+            </div>
+        </form>
+        <p>
+            Miejsce
+        </p>
+        <form>
+            <div>
+                <tr th:each="place : ${places}">
+                    <td>
+                        <div sec:authorize="isAnonymous()">
+                            <a th:href="@{${url2} +'/'+${place} +'?login=no'}" th:text="${place}"></a>
+                        </div>
+                        <div sec:authorize="isAuthenticated()">
+                            <a th:href="@{${url2} +'/'+${place} +'?login=yes'}" th:text="${place}"></a>
+                        </div>
+                    </td>
+                </tr>
+            </div>
+        </form>
+    </div>
+
+    <div th:if="${successMessage=='buy'}">
+        <p>Dzien</p>
+        <form>
+            <div>
+                <tr th:each="day : ${days}">
+                    <td>
+                        <a th:href="@{${url1} +'/'+${day} }" th:text="${day}"></a>
+                    </td>
+                </tr>
+            </div>
+        </form>
+        <p>
+            Godzina
+        </p>
+        <form>
+            <div>
+                <tr th:each="time : ${times}">
+                    <td>
+                        <a th:href="@{${url} +'/'+${time} }" th:text="${time}"></a>
+                    </td>
+                </tr>
+            </div>
+        </form>
+        <p>
+            Miejsce
+        </p>
+            <form>
+                <div>
+                    <tr th:each="place : ${places}">
+                        <td>
+                            <div sec:authorize="isAnonymous()">
+                                <a th:href="@{${url2} +'/'+${place} +'?login=no'}" th:text="${place}"></a>
+                            </div>
+                            <div sec:authorize="isAuthenticated()">
+                                <a th:href="@{${url2} +'/'+${place} +'?login=yes'}" th:text="${place}"></a>
+                            </div>
+                        </td>
+                    </tr>
+                </div>
+            </form>
+
+        <form method="post">
+
+            <div sec:authorize="isAnonymous()">
+                <input type="submit" name="submit" value="Dalej"/>
+            </div>
+
+            <div sec:authorize="isAuthenticated()">
+                <input type="submit" name="submit" value="Kup"/>
+            </div>
+
+
+        </form>
+    </div>
+
+    <div th:if="${successMessage=='success'}">
+        <span th:utext="${successMessage1}"></span>
+    </div>
+
+    <a href="/">Strona glowna</a>
+</body>
+</html>

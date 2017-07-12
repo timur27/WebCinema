@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <style>
+        .center {
+            position: absolute;
+            left: 0;
+            top: 10%;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+<div class="center">
+    <h1>
+        <p>
+            <th th:text="${hello}">userName</th>
+        </p>
+        <p>
+            <a href="/">Home</a>
+        </p>
+        <p>
+            <a class="class1 class2" href="/admin/addmovie">Dodaj</a>
+        </p>
+        <p>
+            <a class="class1 class2" href="/movies?name=">Modyfikuj Filmy</a>
+        </p>
+    </h1>
+</div>
+
+</body>
+</html>

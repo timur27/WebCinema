@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<!--<p th:text="'Hello, ' + ${name} + '!'" />-->
+<form method="get" >
+    <pre>
+        Nazwa
+        <input type= "text" th:field="${editMovie.name}"/>
+        Premiera
+        <input type= "text" name="premiera" th:value="*{editMovie.premiere}"/>
+        Czas trwania
+        <input type= "text" name="czas" th:value="*{editMovie.duration}"/>
+        Napisy
+        <input type= "text" name="napisy" th:value="*{editMovie.subtitles}"/>
+        Jakosc
+        <input type= "text" name="jakosc" th:value="*{editMovie.td}"/>
+        Rezyser
+        <input type= "text" name="rezyser" th:value="*{editMovie.director}"/>
+        Gatunek
+        <input type= "text" name="gatunek" th:value="*{editMovie.type}"/>
+        Produkcja
+        <input type= "text" name="produkcja" th:value="*{editMovie.production}"/>
+        Ocena
+        <input type= "text" name="ocena" th:value="*{editMovie.rating}"/>
+    </pre>
+
+    <p>
+        <!--<button>Edytuj</button>-->
+        <button name="update" type="submit" value="update">Edytuj</button>
+    </p>
+    <a href="/">Strona glowna</a>
+    <p th:text="${hello}" />
+
+</form>
+</body>
+</html>

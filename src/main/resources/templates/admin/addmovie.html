@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+</head>
+<body>
+<div class="center">
+    <form method="get" >
+        <pre>
+            <h1> Dodaj Film</h1>
+            <!--Nazwa-->
+            <input type= "text" name="name" placeholder="Nazwa"/>
+            <!--Premiera-->
+            <input type= "text" name="premiera" placeholder="Premiera"/>
+            <!--Czas trwania-->
+            <input type= "text" name="czas" placeholder="Czas trwania"/>
+            <!--Napisy-->
+            <input type= "text" name="napisy" placeholder="Napisy"/>
+            Jakosc
+            <select name="jakosc">
+                <option>2D</option>
+                <option>3D</option>
+                <option>4D</option>
+            </select>
+            <!--Rezyser-->
+            <input type= "text" name="rezyser" placeholder="Rezyser"/>
+            Gatunek
+            <select name="gatunek">
+                <option>akcja</option>
+                <option>dramat</option>
+                <option>fantasy</option>
+                <option>horror</option>
+                <option>komedia</option>
+                <option>przygodowy</option>
+                <option>sci-fi</option>
+                <option>thriller</option>
+            </select>
+            <!--Produkcja-->
+            <input type= "text" name="produkcja" placeholder="Produkcja"/>
+            <!--Ocena-->
+            <input type= "text" name="ocena" placeholder="Ocena"/>
+            <button>Dodaj</button>
+        </pre>
+        <p th:text="${error}" />
+    </form>
+</div>
+</body>
+</html>
